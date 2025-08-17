@@ -37,41 +37,11 @@ const App = () => (
 
           {/* Category pages */}
           <Route path="/category/electronics" element={<CategoryElectronics />} />
-          <Route path="/category/home-appliances" element={
-            <Placeholder
-              title="Home Appliances"
-              description="Find the best deals on home appliances from refrigerators to washing machines."
-              features={["Kitchen appliances", "Cleaning equipment", "Air conditioners", "Water purifiers", "Small appliances"]}
-            />
-          } />
-          <Route path="/category/fashion" element={
-            <Placeholder
-              title="Fashion Category"
-              description="Discover the latest fashion trends with price comparisons from top brands."
-              features={["Men's clothing", "Women's clothing", "Kids fashion", "Accessories", "Seasonal collections"]}
-            />
-          } />
-          <Route path="/category/smartwatches" element={
-            <Placeholder
-              title="Smartwatches"
-              description="Compare prices on the latest 2025 smartwatch models with advanced health tracking."
-              features={["Apple Watch Series", "Samsung Galaxy Watch", "Fitness trackers", "Luxury smartwatches", "Budget options"]}
-            />
-          } />
-          <Route path="/category/traditional-watches" element={
-            <Placeholder
-              title="Traditional Watches"
-              description="Browse classic and luxury watches with detailed price comparisons."
-              features={["Luxury brands", "Swiss watches", "Analog timepieces", "Digital watches", "Vintage collections"]}
-            />
-          } />
-          <Route path="/category/shoes" element={
-            <Placeholder
-              title="Shoes & Footwear"
-              description="Find the perfect pair of shoes with price comparisons across all stores."
-              features={["Athletic shoes", "Casual footwear", "Formal shoes", "Boots", "Seasonal footwear"]}
-            />
-          } />
+          <Route path="/category/home-appliances" element={<CategoryHomeAppliances />} />
+          <Route path="/category/fashion" element={<CategoryFashion />} />
+          <Route path="/category/smartwatches" element={<CategorySmartwatches />} />
+          <Route path="/category/traditional-watches" element={<CategoryTraditionalWatches />} />
+          <Route path="/category/shoes" element={<CategoryShoes />} />
 
           {/* Feature pages */}
           <Route path="/deals" element={<HotDeals />} />
