@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Search, ShoppingCart, User, Menu, MapPin, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const categories = [
   "Electronics",
@@ -20,6 +21,26 @@ const categories = [
 ];
 
 export default function Header() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [mobileSearchQuery, setMobileSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (query: string) => {
+    if (query.trim()) {
+      navigate(`/search?q=${encodeURIComponent(query.trim())}`);
+    }
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleSearch(searchQuery);
+  };
+
+  const handleMobileSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleSearch(mobileSearchQuery);
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       {/* Top bar */}
@@ -35,27 +56,32 @@ export default function Header() {
 
           {/* Search bar */}
           <div className="hidden md:flex flex-1 max-w-2xl mx-8">
-            <div className="relative w-full">
+            <form onSubmit={handleSearchSubmit} className="relative w-full">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 placeholder="Search for products, brands, categories..."
-                className="pl-10 pr-4 h-10 w-full"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 pr-20 h-10 w-full"
               />
               <Button 
+                type="submit"
                 size="sm" 
                 className="absolute right-1 top-1/2 -translate-y-1/2 h-8"
               >
                 Search
               </Button>
-            </div>
+            </form>
           </div>
 
           {/* Right side actions */}
           <div className="flex items-center space-x-4">
             {/* Location */}
-            <Button variant="ghost" size="sm" className="hidden lg:flex items-center space-x-1">
-              <MapPin className="h-4 w-4" />
-              <span className="text-sm">Your Location</span>
+            <Button variant="ghost" size="sm" className="hidden lg:flex items-center space-x-1" asChild>
+              <Link to="/stores">
+                <MapPin className="h-4 w-4" />
+                <span className="text-sm">Your Location</span>
+              </Link>
             </Button>
 
             {/* Notifications */}
@@ -104,11 +130,14 @@ export default function Header() {
               <DropdownMenuContent align="end" className="w-56">
                 {categories.map((category) => (
                   <DropdownMenuItem key={category} asChild>
-                    <Link to={`/category/${category.toLowerCase().replace(' ', '-')}`}>
+                    <Link to={`/category/${category.toLowerCase().replace(/\s+/g, '-')}`}>
                       {category}
                     </Link>
                   </DropdownMenuItem>
                 ))}
+                <DropdownMenuItem asChild>
+                  <Link to="/deals">🔥 Hot Deals</Link>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -119,7 +148,7 @@ export default function Header() {
           {categories.map((category) => (
             <Link
               key={category}
-              to={`/category/${category.toLowerCase().replace(' ', '-')}`}
+              to={`/category/${category.toLowerCase().replace(/\s+/g, '-')}`}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               {category}
@@ -135,13 +164,15 @@ export default function Header() {
 
         {/* Mobile search */}
         <div className="md:hidden pb-4">
-          <div className="relative">
+          <form onSubmit={handleMobileSearchSubmit} className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               placeholder="Search products..."
+              value={mobileSearchQuery}
+              onChange={(e) => setMobileSearchQuery(e.target.value)}
               className="pl-10 pr-4 h-10 w-full"
             />
-          </div>
+          </form>
         </div>
       </div>
     </header>
