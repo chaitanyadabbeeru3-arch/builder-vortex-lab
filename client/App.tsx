@@ -68,13 +68,7 @@ const App = () => (
           } />
 
           {/* Feature pages */}
-          <Route path="/deals" element={
-            <Placeholder
-              title="Hot Deals & Offers"
-              description="Discover the best deals and limited-time offers across all categories."
-              features={["Flash sales", "Daily deals", "Seasonal offers", "Bundle discounts", "Clearance sales"]}
-            />
-          } />
+          <Route path="/deals" element={<HotDeals />} />
           <Route path="/stores" element={
             <Placeholder
               title="Local Stores"
