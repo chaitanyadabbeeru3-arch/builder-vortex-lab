@@ -10,6 +10,8 @@ import Index from "./pages/Index";
 import Search from "./pages/Search";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import CategoryElectronics from "./pages/CategoryElectronics";
+import HotDeals from "./pages/HotDeals";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
 
