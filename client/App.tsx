@@ -45,13 +45,7 @@ const App = () => (
 
           {/* Feature pages */}
           <Route path="/deals" element={<HotDeals />} />
-          <Route path="/stores" element={
-            <Placeholder
-              title="Local Stores"
-              description="Find nearby stores with GPS-enabled location services and real-time inventory."
-              features={["GPS store locator", "Real-time inventory", "Store contact details", "Operating hours", "Directions and maps"]}
-            />
-          } />
+          <Route path="/stores" element={<Stores />} />
           <Route path="/compare" element={
             <Placeholder
               title="Price Comparison Tool"
