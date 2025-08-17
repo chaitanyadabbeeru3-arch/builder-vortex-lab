@@ -11,7 +11,13 @@ import Search from "./pages/Search";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import CategoryElectronics from "./pages/CategoryElectronics";
+import CategoryHomeAppliances from "./pages/CategoryHomeAppliances";
+import CategoryFashion from "./pages/CategoryFashion";
+import CategorySmartwatches from "./pages/CategorySmartwatches";
+import CategoryTraditionalWatches from "./pages/CategoryTraditionalWatches";
+import CategoryShoes from "./pages/CategoryShoes";
 import HotDeals from "./pages/HotDeals";
+import Stores from "./pages/Stores";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
 
