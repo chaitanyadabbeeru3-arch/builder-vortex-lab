@@ -30,13 +30,7 @@ const App = () => (
           <Route path="/signup" element={<SignUp />} />
 
           {/* Category pages */}
-          <Route path="/category/electronics" element={
-            <Placeholder
-              title="Electronics Category"
-              description="Browse the latest electronic devices with price comparisons across all major stores."
-              features={["Latest 2025 smartphone models", "Laptops and computers", "Gaming consoles", "Audio devices", "Smart home products"]}
-            />
-          } />
+          <Route path="/category/electronics" element={<CategoryElectronics />} />
           <Route path="/category/home-appliances" element={
             <Placeholder
               title="Home Appliances"
