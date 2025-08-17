@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Search, Filter, Star, MapPin, TrendingUp, ExternalLink } from "lucide-react";
+import { Search as SearchIcon, Filter, Star, MapPin, TrendingUp, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
