@@ -219,30 +219,30 @@ export default function Index() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-              {categories.map((category, index) => (
-                <Card 
-                  key={category.name} 
-                  className={`relative group cursor-pointer hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <CardContent className="p-6 text-center">
-                    {category.trending && (
-                      <Badge className="absolute top-2 right-2 bg-accent text-accent-foreground">
-                        Trending
-                      </Badge>
-                    )}
-                    <div className="text-4xl mb-3">{category.icon}</div>
-                    <h3 className="font-semibold mb-1">{category.name}</h3>
-                    <p className="text-sm text-muted-foreground">{category.count}</p>
-                  </CardContent>
-                  <Link 
-                    to={`/category/${category.name.toLowerCase().replace(' ', '-')}`}
-                    className="absolute inset-0"
-                  />
-                </Card>
-              ))}
-            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+            {categories.map((category, index) => (
+              <Card
+                key={category.name}
+                className={`relative group cursor-pointer hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <CardContent className="p-6 text-center">
+                  {category.trending && (
+                    <Badge className="absolute top-2 right-2 bg-accent text-accent-foreground">
+                      🔥 Hot
+                    </Badge>
+                  )}
+                  <div className="text-4xl mb-3">{category.icon}</div>
+                  <h3 className="font-semibold mb-1 text-sm">{category.name}</h3>
+                  <p className="text-xs text-muted-foreground">{category.count}</p>
+                </CardContent>
+                <Link
+                  to={category.route}
+                  className="absolute inset-0"
+                />
+              </Card>
+            ))}
+          </div>
           </div>
         </section>
 
