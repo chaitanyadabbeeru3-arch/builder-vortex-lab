@@ -24,7 +24,17 @@ const allProducts = [
     prices: {
       amazon: { price: "₹1,24,999", discount: "15% OFF", originalPrice: "₹1,46,999", available: true },
       flipkart: { price: "₹1,26,999", discount: "13% OFF", originalPrice: "₹1,46,999", available: true },
-      localStore: { price: "₹1,28,500", discount: "12% OFF", originalPrice: "₹1,46,999", available: true, storeName: "Mobile World" }
+      localStore: {
+        price: "₹1,28,500",
+        discount: "12% OFF",
+        originalPrice: "₹1,46,999",
+        available: true,
+        storeName: "Mobile World",
+        address: "MG Road, Brigade Road, Bangalore",
+        coordinates: { lat: 12.9716, lng: 77.5946 },
+        phone: "+91 98765 43210",
+        distance: "0.8 km"
+      }
     },
     bestPrice: "amazon",
     features: ["200MP Camera", "S Pen", "Titanium Build", "AI Features"]
@@ -165,7 +175,7 @@ const allProducts = [
     prices: {
       amazon: { price: "₹1,09,999", discount: "12% OFF", originalPrice: "₹1,24,999", available: true },
       flipkart: { price: "₹1,11,999", discount: "10% OFF", originalPrice: "₹1,24,999", available: true },
-      localStore: { price: "₹1,13,500", discount: "9% OFF", originalPrice: "₹1,24,999", available: true, storeName: "Samsung Store" }
+      localStore: { price: "₹1,13,500", discount: "9% OFF", originalPrice: "���1,24,999", available: true, storeName: "Samsung Store" }
     },
     bestPrice: "amazon",
     features: ["Intel Core i7", "Dynamic AMOLED 2X", "S Pen", "Dolby Atmos"]
