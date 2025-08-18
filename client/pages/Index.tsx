@@ -352,6 +352,66 @@ export default function Index() {
           </div>
         </section>
 
+        {/* Local Stores Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 flex items-center justify-center gap-3">
+                📍 Local Stores Near You
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Visit nearby stores for instant pickup, better deals, and personalized service with GPS-enabled directions.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <Card className="text-center p-6 hover:shadow-lg transition-shadow bg-gradient-to-br from-blue-50 to-blue-100">
+                <div className="text-3xl mb-3">🏪</div>
+                <h3 className="font-semibold mb-2">Mobile World</h3>
+                <p className="text-sm text-muted-foreground mb-3">📍 MG Road • 0.8 km</p>
+                <Button size="sm" className="w-full" asChild>
+                  <Link to="/stores">Get Directions</Link>
+                </Button>
+              </Card>
+
+              <Card className="text-center p-6 hover:shadow-lg transition-shadow bg-gradient-to-br from-green-50 to-green-100">
+                <div className="text-3xl mb-3">🏋️</div>
+                <h3 className="font-semibold mb-2">Fitness World</h3>
+                <p className="text-sm text-muted-foreground mb-3">📍 Koramangala • 2.1 km</p>
+                <Button size="sm" className="w-full" asChild>
+                  <Link to="/stores">Get Directions</Link>
+                </Button>
+              </Card>
+
+              <Card className="text-center p-6 hover:shadow-lg transition-shadow bg-gradient-to-br from-pink-50 to-pink-100">
+                <div className="text-3xl mb-3">💄</div>
+                <h3 className="font-semibold mb-2">Beauty Palace</h3>
+                <p className="text-sm text-muted-foreground mb-3">📍 UB City Mall • 1.5 km</p>
+                <Button size="sm" className="w-full" asChild>
+                  <Link to="/stores">Get Directions</Link>
+                </Button>
+              </Card>
+
+              <Card className="text-center p-6 hover:shadow-lg transition-shadow bg-gradient-to-br from-purple-50 to-purple-100">
+                <div className="text-3xl mb-3">🪑</div>
+                <h3 className="font-semibold mb-2">Furniture World</h3>
+                <p className="text-sm text-muted-foreground mb-3">📍 Commercial St • 1.2 km</p>
+                <Button size="sm" className="w-full" asChild>
+                  <Link to="/stores">Get Directions</Link>
+                </Button>
+              </Card>
+            </div>
+
+            <div className="text-center">
+              <Button variant="outline" size="lg" asChild>
+                <Link to="/stores">
+                  📍 View All Local Stores & Get GPS Directions
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
         {/* Features Section */}
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
