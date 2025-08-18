@@ -14,36 +14,63 @@ const categories = [
     icon: "📱",
     count: "12,450+ products",
     trending: true,
+    route: "/category/electronics"
   },
   {
-    name: "Home Appliances", 
+    name: "Gym Equipment",
+    icon: "🏋️",
+    count: "5,230+ products",
+    trending: true,
+    route: "/search?q=gym equipment"
+  },
+  {
+    name: "Cosmetics",
+    icon: "💄",
+    count: "18,670+ products",
+    trending: true,
+    route: "/search?q=cosmetics"
+  },
+  {
+    name: "Men's Fashion",
+    icon: "👔",
+    count: "7,450+ products",
+    trending: true,
+    route: "/search?q=mens fashion"
+  },
+  {
+    name: "Women's Fashion",
+    icon: "👗",
+    count: "15,890+ products",
+    trending: true,
+    route: "/search?q=womens fashion"
+  },
+  {
+    name: "Furniture",
+    icon: "🪑",
+    count: "6,120+ products",
+    trending: false,
+    route: "/search?q=furniture"
+  },
+  {
+    name: "Home Appliances",
     icon: "🏠",
     count: "8,230+ products",
     trending: false,
+    route: "/category/home-appliances"
   },
   {
-    name: "Fashion",
-    icon: "👗",
-    count: "15,670+ products", 
+    name: "Home Decor",
+    icon: "🖼️",
+    count: "4,560+ products",
     trending: true,
+    route: "/search?q=home decor"
   },
   {
-    name: "Smartwatches",
-    icon: "⌚",
-    count: "3,450+ products",
-    trending: true,
-  },
-  {
-    name: "Traditional Watches",
-    icon: "⏰", 
-    count: "2,890+ products",
+    name: "Electrical",
+    icon: "⚡",
+    count: "3,340+ products",
     trending: false,
-  },
-  {
-    name: "Shoes",
-    icon: "👟",
-    count: "9,120+ products",
-    trending: true,
+    route: "/search?q=electrical"
   },
 ];
 
