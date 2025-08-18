@@ -51,7 +51,17 @@ const allProducts = [
     prices: {
       amazon: { price: "₹89,999", discount: "18% OFF", originalPrice: "₹1,09,999", available: true },
       flipkart: { price: "₹91,999", discount: "16% OFF", originalPrice: "₹1,09,999", available: true },
-      localStore: { price: "₹93,500", discount: "15% OFF", originalPrice: "₹1,09,999", available: true, storeName: "Tech Hub" }
+      localStore: {
+        price: "₹93,500",
+        discount: "15% OFF",
+        originalPrice: "₹1,09,999",
+        available: true,
+        storeName: "Tech Hub",
+        address: "Commercial Street, Bangalore",
+        coordinates: { lat: 12.9817, lng: 77.6098 },
+        phone: "+91 98765 43211",
+        distance: "1.2 km"
+      }
     },
     bestPrice: "amazon",
     features: ["Triple Camera", "Dynamic AMOLED", "Wireless Charging", "5G"]
@@ -175,7 +185,7 @@ const allProducts = [
     prices: {
       amazon: { price: "₹1,09,999", discount: "12% OFF", originalPrice: "₹1,24,999", available: true },
       flipkart: { price: "₹1,11,999", discount: "10% OFF", originalPrice: "₹1,24,999", available: true },
-      localStore: { price: "₹1,13,500", discount: "9% OFF", originalPrice: "���1,24,999", available: true, storeName: "Samsung Store" }
+      localStore: { price: "₹1,13,500", discount: "9% OFF", originalPrice: "₹1,24,999", available: true, storeName: "Samsung Store" }
     },
     bestPrice: "amazon",
     features: ["Intel Core i7", "Dynamic AMOLED 2X", "S Pen", "Dolby Atmos"]
