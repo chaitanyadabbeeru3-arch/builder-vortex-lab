@@ -273,11 +273,31 @@ export default function Stores() {
               </div>
 
               <div className="flex gap-2 pt-2">
-                <Button size="sm" className="flex-1">
+                <Button
+                  size="sm"
+                  className="flex-1"
+                  onClick={() => {
+                    if (userLocation && store.coordinates) {
+                      // Open Google Maps with turn-by-turn navigation
+                      const url = `https://www.google.com/maps/dir/${userLocation.lat},${userLocation.lng}/${store.coordinates.lat},${store.coordinates.lng}/@${userLocation.lat},${userLocation.lng},15z/data=!3m1!4b1!4m2!4m1!3e0`;
+                      window.open(url, '_blank');
+                    } else {
+                      // Fallback to search if no user location
+                      const searchUrl = `https://www.google.com/maps/search/${encodeURIComponent(store.name + ' ' + store.address)}`;
+                      window.open(searchUrl, '_blank');
+                    }
+                  }}
+                >
                   <Navigation className="h-4 w-4 mr-1" />
                   Get Directions
                 </Button>
-                <Button size="sm" variant="outline">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => {
+                    window.open(`tel:${store.phone}`, '_self');
+                  }}
+                >
                   <Phone className="h-4 w-4 mr-1" />
                   Call Store
                 </Button>
