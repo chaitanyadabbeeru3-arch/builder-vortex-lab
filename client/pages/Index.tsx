@@ -94,13 +94,13 @@ const hotDeals = [
     title: "Samsung Galaxy Watch 6",
     originalPrice: "₹32,999",
     discountPrice: "₹24,999",
-    discount: "24% OFF", 
+    discount: "24% OFF",
     rating: 4.6,
     reviews: 1523,
     stores: ["Flipkart", "Amazon"],
     bestStore: "Flipkart",
     timeLeft: "1 day left",
-    image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop"
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop"
   },
   {
     id: 3,
