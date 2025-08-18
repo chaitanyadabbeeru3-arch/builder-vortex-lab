@@ -79,7 +79,17 @@ const allProducts = [
     prices: {
       amazon: { price: "₹1,39,900", discount: "13% OFF", originalPrice: "₹1,59,900", available: true },
       flipkart: { price: "₹1,42,900", discount: "10% OFF", originalPrice: "₹1,59,900", available: true },
-      localStore: { price: "₹1,45,000", discount: "9% OFF", originalPrice: "₹1,59,900", available: true, storeName: "iStore" }
+      localStore: {
+        price: "₹1,45,000",
+        discount: "9% OFF",
+        originalPrice: "₹1,59,900",
+        available: true,
+        storeName: "iStore",
+        address: "UB City Mall, Bangalore",
+        coordinates: { lat: 12.9698, lng: 77.5954 },
+        phone: "+91 98765 43212",
+        distance: "1.5 km"
+      }
     },
     bestPrice: "amazon",
     features: ["A17 Pro Chip", "Titanium Design", "Action Button", "USB-C"]
