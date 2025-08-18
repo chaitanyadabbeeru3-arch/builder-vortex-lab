@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Search as SearchIcon, Filter, Star, MapPin, TrendingUp, ExternalLink } from "lucide-react";
+import { Search as SearchIcon, Filter, Star, MapPin, TrendingUp, ExternalLink, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { allProducts, searchProducts, getLocalStores, type Product } from "../data/products";
 
 // Comprehensive product database with latest 2025 models
 const allProducts = [
