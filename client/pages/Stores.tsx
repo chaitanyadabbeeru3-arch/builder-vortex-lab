@@ -192,7 +192,7 @@ export default function Stores() {
     return 0;
   });
 
-  const filteredStores = stores.filter(store => {
+  const filteredStores = sortedStores.filter(store => {
     const matchesSearch = store.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          store.categories.some(cat => cat.toLowerCase().includes(searchQuery.toLowerCase()));
     const matchesCategory = filterCategory === "All" || store.categories.includes(filterCategory);
