@@ -290,16 +290,31 @@ export default function Index() {
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between">
-                        <div className="flex space-x-1">
-                          {deal.stores.map((store) => (
-                            <Badge key={store} variant="secondary" className="text-xs">
-                              {store}
-                            </Badge>
-                          ))}
+                      <div className="space-y-2">
+                        <div className="grid grid-cols-2 gap-2">
+                          <Button
+                            size="sm"
+                            className="bg-orange-500 hover:bg-orange-600 text-white"
+                            onClick={() => window.open(`https://amazon.in/s?k=${encodeURIComponent(deal.title)}`, '_blank')}
+                          >
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjcgMTEuNUMxMS4yIDEyLjcgOS4xIDEzLjMgNy4zIDEzLjNDNC42IDEzLjMgMi4yIDEyLjIgMC41IDEwLjNDMC4zIDEwLjEgMC41IDkuOCAwLjggOS45QzIuNyAxMSA0LjkgMTEuNiA3LjIgMTEuNkM4LjcgMTEuNiAxMC40IDExLjIgMTEuOSAxMC4zQzEyLjMgMTAuMSAxMi42IDEwLjUgMTIuNCAxMC44TDEyLjcgMTEuNVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMy4yIDEwLjhDMTMgMTAuNSAxMi4yIDEwLjMgMTEuNiAxMC4yQzEwLjggMTAuMSA5LjggMTAuMSA5IDE0LjFDOSA5LjQgOC42IDkuMiA4LjMgOS40QzcuNiA5LjggNy4yIDEwLjUgNy4xIDExLjJDNy4xIDExLjUgNy4zIDExLjcgNy42IDExLjZDOC42IDExLjQgOS41IDEwLjkgMTAuMiAxMC4yQzEwLjcgOS43IDExLjQgOS40IDEyLjEgOS40QzEyLjcgOS40IDEzLjQgMTAuNCAxMy4yIDEwLjhaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" className="w-4 h-4 mr-1" alt="Amazon" />
+                            Amazon
+                          </Button>
+
+                          <Button
+                            size="sm"
+                            className="bg-blue-500 hover:bg-blue-600 text-white"
+                            onClick={() => window.open(`https://flipkart.com/search?q=${encodeURIComponent(deal.title)}`, '_blank')}
+                          >
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiBmaWxsPSIjMDg3NGQ5Ii8+CjxwYXRoIGQ9Ik0zIDNIMTNWMTNIM1YzWiIgZmlsbD0id2hpdGUiLz4KPHA+PC9wPgo8L3N2Zz4K" className="w-4 h-4 mr-1" alt="Flipkart" />
+                            Flipkart
+                          </Button>
                         </div>
-                        <Button size="sm" asChild>
-                          <Link to={`/product/${deal.id}`}>Compare</Link>
+
+                        <Button size="sm" variant="outline" className="w-full" asChild>
+                          <Link to={`/search?q=${encodeURIComponent(deal.title)}`}>
+                            Compare All Prices
+                          </Link>
                         </Button>
                       </div>
                     </div>
