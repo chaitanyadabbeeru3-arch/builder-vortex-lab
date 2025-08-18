@@ -113,19 +113,36 @@ export default function Stores() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterCategory, setFilterCategory] = useState("All");
   const [sortBy, setSortBy] = useState("distance");
+  const [locationAccuracy, setLocationAccuracy] = useState<number | null>(null);
 
   useEffect(() => {
     requestLocation();
   }, []);
 
+  // Calculate distance between two coordinates using Haversine formula
+  const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
+    const R = 6371; // Radius of the Earth in kilometers
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a =
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const distance = R * c; // Distance in kilometers
+    return distance;
+  };
+
   const requestLocation = () => {
     if ("geolocation" in navigator) {
+      // Request high accuracy GPS location
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setUserLocation({
             lat: position.coords.latitude,
             lng: position.coords.longitude
           });
+          setLocationAccuracy(position.coords.accuracy);
           setLocationPermission("granted");
         },
         (error) => {
@@ -133,6 +150,11 @@ export default function Stores() {
           setLocationPermission("denied");
           // Fallback to Bangalore coordinates
           setUserLocation({ lat: 12.9716, lng: 77.5946 });
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 300000 // 5 minutes
         }
       );
     } else {
@@ -140,6 +162,35 @@ export default function Stores() {
       setUserLocation({ lat: 12.9716, lng: 77.5946 });
     }
   };
+
+  // Update store distances based on user location
+  const storesWithCalculatedDistance = stores.map(store => {
+    if (userLocation) {
+      const distance = calculateDistance(
+        userLocation.lat,
+        userLocation.lng,
+        store.coordinates.lat,
+        store.coordinates.lng
+      );
+      return {
+        ...store,
+        distance: `${distance.toFixed(1)} km`,
+        calculatedDistance: distance
+      };
+    }
+    return store;
+  });
+
+  // Sort stores by calculated distance
+  const sortedStores = storesWithCalculatedDistance.sort((a, b) => {
+    if (sortBy === "distance" && a.calculatedDistance && b.calculatedDistance) {
+      return a.calculatedDistance - b.calculatedDistance;
+    }
+    if (sortBy === "rating") {
+      return b.rating - a.rating;
+    }
+    return 0;
+  });
 
   const filteredStores = stores.filter(store => {
     const matchesSearch = store.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
