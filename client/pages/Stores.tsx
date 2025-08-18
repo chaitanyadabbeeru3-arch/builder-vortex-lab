@@ -344,16 +344,35 @@ export default function Stores() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <Badge className="bg-success text-success-foreground">
-                      Location Enabled
+                      📍 GPS Enabled
                     </Badge>
                     <span className="text-sm text-muted-foreground">
                       Lat: {userLocation.lat.toFixed(4)}, Lng: {userLocation.lng.toFixed(4)}
+                      {locationAccuracy && (
+                        <span className="block text-xs">
+                          Accuracy: ±{Math.round(locationAccuracy)}m
+                        </span>
+                      )}
                     </span>
                   </div>
-                  <Button size="sm" variant="outline" onClick={requestLocation}>
-                    <Navigation className="h-4 w-4 mr-1" />
-                    Update Location
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="outline" onClick={requestLocation}>
+                      <Navigation className="h-4 w-4 mr-1" />
+                      Refresh GPS
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => {
+                        if (userLocation) {
+                          const url = `https://www.google.com/maps/@${userLocation.lat},${userLocation.lng},17z`;
+                          window.open(url, '_blank');
+                        }
+                      }}
+                    >
+                      📍 View on Map
+                    </Button>
+                  </div>
                 </div>
               )}
               {locationPermission === "denied" && (
