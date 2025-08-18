@@ -388,14 +388,39 @@ export default function Search() {
                         <div className="text-sm text-muted-foreground line-through">{prices.localStore.originalPrice}</div>
                         <Badge variant="destructive" className="text-xs">{prices.localStore.discount}</Badge>
                       </div>
-                      <Button 
-                        size="sm" 
-                        className="w-full mt-3" 
-                        variant={bestStore === 'localStore' ? 'default' : 'outline'}
-                      >
-                        <MapPin className="h-4 w-4 mr-1" />
-                        Visit Store
-                      </Button>
+                      <div className="space-y-2">
+                        <Button
+                          size="sm"
+                          className="w-full"
+                          variant={bestStore === 'localStore' ? 'default' : 'outline'}
+                          onClick={() => {
+                            const store = prices.localStore;
+                            if (store.coordinates) {
+                              // Open Google Maps with directions
+                              const url = `https://www.google.com/maps/dir/?api=1&destination=${store.coordinates.lat},${store.coordinates.lng}&destination_place_id=${encodeURIComponent(store.storeName + ', ' + store.address)}`;
+                              window.open(url, '_blank');
+                            }
+                          }}
+                        >
+                          <MapPin className="h-4 w-4 mr-1" />
+                          Get Directions
+                        </Button>
+                        <div className="text-xs text-center text-muted-foreground">
+                          📍 {prices.localStore.distance} • {prices.localStore.address}
+                        </div>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="w-full"
+                          onClick={() => {
+                            if (prices.localStore.phone) {
+                              window.open(`tel:${prices.localStore.phone}`, '_self');
+                            }
+                          }}
+                        >
+                          📞 Call Store
+                        </Button>
+                      </div>
                     </>
                   ) : (
                     <div className="text-sm text-muted-foreground">Currently out of stock</div>
