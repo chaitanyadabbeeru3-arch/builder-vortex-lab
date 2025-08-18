@@ -87,7 +87,7 @@ const hotDeals = [
     stores: ["Amazon", "Flipkart", "Local Store"],
     bestStore: "Amazon",
     timeLeft: "2 days left",
-    image: "/placeholder.svg"
+    image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop"
   },
   {
     id: 2,
@@ -100,7 +100,7 @@ const hotDeals = [
     stores: ["Flipkart", "Amazon"],
     bestStore: "Flipkart",
     timeLeft: "1 day left",
-    image: "/placeholder.svg"
+    image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop"
   },
   {
     id: 3,
@@ -113,7 +113,7 @@ const hotDeals = [
     stores: ["Amazon", "Local Store"],
     bestStore: "Local Store",
     timeLeft: "5 hours left",
-    image: "/placeholder.svg"
+    image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop"
   },
 ];
 
