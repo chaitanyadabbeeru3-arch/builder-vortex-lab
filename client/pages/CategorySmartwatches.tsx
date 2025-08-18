@@ -310,15 +310,29 @@ export default function CategorySmartwatches() {
             </div>
           </div>
 
-          <div className="flex gap-2">
-            <Button size="sm" className="flex-1" asChild>
+          <div className="space-y-2">
+            <div className="grid grid-cols-2 gap-2">
+              <Button
+                size="sm"
+                className="bg-orange-500 hover:bg-orange-600 text-white"
+                onClick={() => window.open(`https://amazon.in/s?k=${encodeURIComponent(product.name)}`, '_blank')}
+              >
+                Amazon
+              </Button>
+
+              <Button
+                size="sm"
+                className="bg-blue-500 hover:bg-blue-600 text-white"
+                onClick={() => window.open(`https://flipkart.com/search?q=${encodeURIComponent(product.name)}`, '_blank')}
+              >
+                Flipkart
+              </Button>
+            </div>
+
+            <Button size="sm" variant="outline" className="w-full" asChild>
               <Link to={`/search?q=${encodeURIComponent(product.name)}`}>
-                <ShoppingCart className="h-4 w-4 mr-1" />
-                Compare Prices
+                Compare All Prices
               </Link>
-            </Button>
-            <Button size="sm" variant="outline">
-              <Heart className="h-4 w-4" />
             </Button>
           </div>
         </div>
